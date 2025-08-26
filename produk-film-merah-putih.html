@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket Film Merah Putih: One For All - TokoOnline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><div class="logo">TensixShop</div></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="#">Produk</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-detail">
+        <div class="product-detail-container">
+            <img src="meandwho.jpeg" alt="Poster Film Merah Putih: One For All">
+            <div class="product-info">
+                <h1>Tiket Film Merah Putih: One For All</h1>
+                <p class="price">Rp50.000</p>
+                <p>
+                    <strong>Film Merah Putih: One For All</strong> adalah persembahan sinema untuk mengenang perjuangan bangsa. Dirilis khusus dalam rangka Hari Kemerdekaan 17 Agustus, film ini menghadirkan semangat persatuan, pengorbanan, dan cinta tanah air dalam kisah yang menggugah jiwa.
+                </p>
+                <ul>
+                    <li>Genre: Drama, Aksi, Patriotik</li>
+                    <li>Durasi: 120 menit</li>
+                    <li>Bahasa: Indonesia</li>
+                    <li>Tanggal tayang: Mulai 16 Agustus 2025</li>
+                </ul>
+                <p><em>Beli tiketnya sekarang dan jadilah bagian dari kisah perjuangan bangsa!</em></p>
+                <button>Beli Sekarang</button>
+                <br><br>
+                <a href="index.html">← Kembali ke beranda</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TokoOnline. Semua hak dilindungi.</p>
+    </footer>
+		<!-- Payment Modal -->
+<div id="payment-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>Form Pembayaran</h2>
+        <form id="payment-form">
+            <label>Nama:</label>
+            <input type="text" placeholder="Nama lengkap" required>
+            
+            <label>Email:</label>
+            <input type="email" placeholder="Email aktif" required>
+            
+            <label>Metode Pembayaran:</label>
+            <select>
+                <option>Transfer Bank</option>
+                <option>QRIS</option>
+                <option>COD</option>
+            </select>
+            
+            <button type="submit">Kirim Pembayaran</button>
+        </form>
+    </div>
+</div>
+<!-- Sukses Modal -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeSuccessModal()">&times;</span>
+        <h2>✅ Pembelian Sukses!</h2>
+        <p>Terima kasih sudah membeli. Kami akan segera memproses pesanan Anda.</p>
+        <button onclick="closeSuccessModal()">OK</button>
+    </div>
+</div>
+<script>
+    // Buka popup saat tombol "Beli" diklik
+    document.querySelectorAll('button').forEach(button => {
+        if (button.textContent.toLowerCase().includes('beli')) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('payment-modal').style.display = 'block';
+            });
+        }
+    });
+
+    // Tutup popup pembayaran
+    function closeModal() {
+        document.getElementById('payment-modal').style.display = 'none';
+    }
+
+    // Tutup popup sukses
+    function closeSuccessModal() {
+        document.getElementById('success-modal').style.display = 'none';
+    }
+
+    // Klik luar untuk tutup popup
+    window.addEventListener('click', function(event) {
+        const paymentModal = document.getElementById('payment-modal');
+        const successModal = document.getElementById('success-modal');
+        if (event.target === paymentModal) paymentModal.style.display = 'none';
+        if (event.target === successModal) successModal.style.display = 'none';
+    });
+
+    // Submit form pembayaran
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        closeModal(); // Tutup payment
+        setTimeout(() => {
+            document.getElementById('success-modal').style.display = 'block';
+        }, 300);
+        this.reset(); // Reset form
+    });
+</script>
+
+</body>
+</html>

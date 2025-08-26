@@ -1,0 +1,10 @@
+<DOCTYPE! html>
+<html>
+<link rel="sytlesheet" href="Styling.css"/>
+<header>
+    <head class="Myself"/>
+        <h1> Perkenalan Diri </h1>
+        <h2> Adam Al-Khaiya (10.6)</h2>
+        <img src="WIN_20250821_15_06_14_Pro.jpg/>
+    </head>
+

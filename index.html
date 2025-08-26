@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tensix Shop</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="FotoPuding" href="download (2).jpeg"
+</head>
+<body>
+    <header>
+        <a href="index.html"><div class="logo">TensixShop</div></a>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Produk</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-bar">
+        <input type="text" placeholder="Cari produk...">
+        <button>Cari</button>
+    </section>
+
+    <main class="product-grid">
+        <!-- Contoh produk -->
+		<div class="product-card">
+			<a href="produk-puding-lele.html">
+				<img src="download (2).jpeg" alt="Puding Lele">
+				<h3>Puding Lele</h3>
+				<p>Rp35.000</p>
+			</a>
+			<button>Beli</button>
+		</div>
+		<div class="product-card">
+			<a href="produk-susu-rooney.html">
+				<img src="Kering.jpeg" alt="Susu Segar Rooney">
+				<h3>Susu Segar Rooney</h3>
+				<p>Rp25.000</p>
+			</a>
+			<button>Beli</button>
+		</div>
+        <div class="product-card">
+			<a href="produk-cimori-anti-nt.html">
+				<img src="cimori.jpeg" alt="Cimori Anti NT">
+				<h3>Cimori Anti NT</h3>
+				<p>Rp12.000</p>
+			</a>
+			<button>Beli</button>
+		</div>
+		<div class="product-card">
+			<a href="produk-film-merah-putih.html">
+				<img src="download.jpeg" alt="Tiket Film Merah Putih: One For All">
+				<h3>Tiket Film Merah Putih</h3>
+				<p>Rp50.000</p>
+			</a>
+			<button>Beli</button>
+		</div>
+		<div class="product-card">
+			<a href="BanyuBuya.html">
+				<img src="download (1).jpeg" alt="Banyu_Buya">
+				<h3>Banyu Buya</h3>
+				<p>Rp100.000</p>
+			</a>
+			<button>Beli</button>
+		</div>
+
+        <!-- Tambahkan lebih banyak produk sesuai kebutuhan -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TensixShop. Semua hak dilindungi.</p>
+    </footer>
+	<!-- Payment Modal -->
+	<div id="payment-modal" class="modal">
+		<div class="modal-content">
+			<span class="close-button" onclick="closeModal()">&times;</span>
+			<h2>Form Pembayaran</h2>
+			<form id="payment-form">
+				<label>Nama:</label>
+				<input type="text" placeholder="Nama lengkap" required>
+            
+				<label>Email:</label>
+				<input type="email" placeholder="Email aktif" required>
+            
+				<label>Metode Pembayaran:</label>
+				<select>
+					<option>Transfer Bank</option>
+					<option>QRIS</option>
+					<option>COD</option>
+				</select>
+            
+				<button type="submit">Kirim Pembayaran</button>
+			</form>
+		</div>
+	</div>
+	<!-- Sukses Modal -->
+	<div id="success-modal" class="modal">
+		<div class="modal-content">
+			<span class="close-button" onclick="closeSuccessModal()">&times;</span>
+			<h2>✅ Pembelian Sukses!</h2>
+			<p>Terima kasih sudah membeli. Kami akan segera memproses pesanan Anda.</p>
+			<button onclick="closeSuccessModal()">OK</button>
+		</div>
+	</div>
+	<script>
+    // Buka popup saat tombol "Beli" diklik
+    document.querySelectorAll('button').forEach(button => {
+        if (button.textContent.toLowerCase().includes('beli')) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('payment-modal').style.display = 'block';
+            });
+        }
+    });
+
+    // Tutup modal
+    function closeModal() {
+        document.getElementById('payment-modal').style.display = 'none';
+    }
+
+    // Tutup jika klik di luar modal
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('payment-modal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+	</script>
+	<script>
+    // Buka popup saat tombol "Beli" diklik
+    document.querySelectorAll('button').forEach(button => {
+        if (button.textContent.toLowerCase().includes('beli')) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('payment-modal').style.display = 'block';
+            });
+        }
+    });
+
+    // Tutup popup pembayaran
+    function closeModal() {
+        document.getElementById('payment-modal').style.display = 'none';
+    }
+
+    // Tutup popup sukses
+    function closeSuccessModal() {
+        document.getElementById('success-modal').style.display = 'none';
+    }
+
+    // Klik luar untuk tutup popup
+    window.addEventListener('click', function(event) {
+        const paymentModal = document.getElementById('payment-modal');
+        const successModal = document.getElementById('success-modal');
+        if (event.target === paymentModal) paymentModal.style.display = 'none';
+        if (event.target === successModal) successModal.style.display = 'none';
+    });
+
+    // Submit form pembayaran
+    document.getElementById('payment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        closeModal(); // Tutup payment
+        setTimeout(() => {
+            document.getElementById('success-modal').style.display = 'block';
+        }, 300);
+        this.reset(); // Reset form
+    });
+	</script>
+
+</body>
+</html>
